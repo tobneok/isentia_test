@@ -3,6 +3,18 @@ Isentia coding challenge
 
 https://github.com/Isentia/Coding-Challenge/blob/master/Data-Engineer-Coding-Challenge.md
 
+# Live
+
+The searcher is hosted at
+
+http://ec2-54-206-55-147.ap-southeast-2.compute.amazonaws.com
+
+Or search directly with
+
+http://ec2-54-206-55-147.ap-southeast-2.compute.amazonaws.com/search?search=prince
+
+(I recommend to use Firefox because it shows the returned JSON much nicer than Chrome)
+
 # Description
 
 ## Scraper
