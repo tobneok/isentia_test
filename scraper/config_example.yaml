@@ -1,0 +1,4 @@
+mongo:
+  user: foo
+  pass: bar
+  cluster: bla
