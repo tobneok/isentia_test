@@ -9,7 +9,7 @@ nose2 -s .
 
 class TestBBC(unittest.TestCase):
     def test_parse_bbc_article(self):
-        with open('testdata/bbc_article.txt', 'r') as f:
+        with open('testdata/bbc_article.html', 'r') as f:
             html = f.read()
 
         a = article.Article(None, None, 'BBC')
@@ -20,3 +20,12 @@ class TestBBC(unittest.TestCase):
 
         # Make sure the ads / JS functions are removed
         self.assertNotIn('/**/', a.text)
+
+    def test_parse_smh_article(self):
+        with open('testdata/smh_article.html', 'r') as f:
+            html = f.read()
+
+        a = article.Article(None, None, 'Sydney Morning Herald')
+        a.parse(html)
+
+        print(a.text)

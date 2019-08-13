@@ -30,6 +30,11 @@ class Article:
     def parse(self, html):
         """ Parses the fetched page """
         logging.debug(f"Finished reading article {self.title}")
+
+        # save test data
+        # with open('tmp.txt', 'w') as f:
+        #     f.write(html)
+
         if self.host_site == 'BBC':
             self.parse_bbc(html)
         elif self.host_site == 'Sydney Morning Herald':
@@ -50,4 +55,10 @@ class Article:
         self.text = text
 
     def parse_smh(self, html):
-        pass
+        page = pq(html)
+        content = page("article")[0]
+        text = pq(content).text()
+
+        # TODO: text needs more cleaning
+
+        self.text = text
