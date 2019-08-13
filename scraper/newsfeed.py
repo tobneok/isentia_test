@@ -61,5 +61,6 @@ class NewsFeed:
         """ Save the articles to database for later searching """
         d = database.Database()
         for article in self.articles:
+            logging.debug("Saving article %s" % article.title)
             d.save_article(article)
         d.close_connection()
