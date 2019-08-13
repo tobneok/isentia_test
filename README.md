@@ -7,6 +7,10 @@ The MongoDB runs on an Atlas cluster.
 
 # Deploying / Running
 
+The Python version used is 3.7.
+
+Do not use Python lower than 3.5, as the asyncio / aiohttp libraries are relatively recent.
+
 ## Scraper Setup
 
 Run the following commands
