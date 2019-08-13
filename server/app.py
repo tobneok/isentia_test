@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 import database
@@ -27,12 +27,10 @@ def search():
     db = database.Database()
     results = db.search(query)
 
-    print(results)
-
     if not results:
-        return "No results found :("
+        return f"No results found for search query '{query}' :("
     else:
-        return "Results: " + str(results)
+        return jsonify(results)
 
 if __name__ == "__main__":
     app.run()

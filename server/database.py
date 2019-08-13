@@ -2,6 +2,7 @@
 Database middleware
 """
 
+import datetime
 from pymongo import MongoClient
 import re
 import yaml
@@ -41,6 +42,16 @@ class Database:
 
         results = []
         for result in cursor:
-            results.append(result)
+            # convert the stored published time (an array) to a datetime
+            time = datetime.datetime(*result['published_time'][:6])
+
+            # extract the information to give to the viewer
+            results.append({
+                'host_site': result['host_site'],
+                'published_time': time,
+                'title': result['title'],
+                'summary': result['summary'],
+                'url': result['url']
+            })
         
         return results
